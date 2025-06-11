@@ -14,6 +14,7 @@ import React from "react";
 // Next.js Core ----
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import Image from "next/image";
 
 // Local Utils ----
 import { getPostSlugs } from "@/lib/mdx-utils";
@@ -157,10 +158,13 @@ function PostHeader({ metadata }: { metadata: PostMetadata }) {
         <>
           <div className="flex justify-center mb-12">
             <div className="w-full max-w-4xl">
-              <img
+              <Image
                 src={metadata.heroImage}
                 alt={`Hero image for ${metadata.title}`}
                 className="w-full h-auto rounded-2xl"
+                width={1200}
+                height={630}
+                priority={true}
               />
             </div>
           </div>

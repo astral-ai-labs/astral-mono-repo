@@ -16,7 +16,7 @@ import { motion, useReducedMotion } from "motion/react";
  * Sun sets while moon rises, creating a natural day/night cycle effect.
  */
 export function ModeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const shouldReduceMotion = useReducedMotion();
   const [isHovered, setIsHovered] = React.useState(false);
   const [mounted, setMounted] = React.useState(false);
@@ -88,13 +88,15 @@ export function ModeToggle() {
         whileTap: { scale: 0.9 }
       };
 
-  const isDark = theme === "dark";
+  // Use resolvedTheme to get actual theme (light/dark) even when theme is "system"
+  const isDark = resolvedTheme === "dark";
 
-  // Render static version during SSR to prevent hydration mismatch
-  if (!mounted) {
+  // Render static version during SSR/hydration to prevent mismatch
+  // Don't show anything until we have the resolved theme
+  if (!mounted || resolvedTheme === undefined) {
     return (
       <div
-        className="relative flex h-4.5 w-4.5 cursor-pointer items-center justify-center"
+        className="relative flex h-4.5 w-4.5 cursor-pointer items-center justify-center opacity-0"
         role="button"
         tabIndex={0}
         aria-label="Toggle theme"
