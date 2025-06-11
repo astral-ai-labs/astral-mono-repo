@@ -74,7 +74,7 @@ const builderConstants = {
       },
       {
         name: "Meet Chris",
-        href: "https://cal.com/chris-maresca/intro",
+        href: "https://cal.com/chris-maresca/15min",
         external: true,
       },
       // {
