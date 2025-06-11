@@ -23,7 +23,7 @@ import type { MDXComponents } from 'mdx/types'
  */
 function FootnoteRef({ id }: { id: string }) {
   return (
-    <sup>
+    <sup className='text-[10px] ml-[1px]'>
       <a
         href={`#footnote-${id}`}
         id={`footnote-ref-${id}`}
