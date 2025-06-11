@@ -150,13 +150,13 @@ function Breadcrumbs({ category }: { category: string }) {
 function PostHeader({ metadata }: { metadata: PostMetadata }) {
   return (
     <>
-      <h1 className="text-3xl md:text-4xl xl:text-5xl font-normal text-center mb-12 max-w-4xl mx-auto leading-tight tracking-tight text-foreground">
+      <h1 className="text-2xl md:text-4xl xl:text-5xl font-normal text-center mb-6 md:mb-12 max-w-4xl mx-auto leading-tight tracking-tight text-foreground">
         {metadata.title}
       </h1>
       
       {metadata.heroImage ? (
         <>
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-6 md:mb-12">
             <div className="w-full max-w-4xl">
               <Image
                 src={metadata.heroImage}
@@ -169,11 +169,15 @@ function PostHeader({ metadata }: { metadata: PostMetadata }) {
             </div>
           </div>
           
-          <div className="flex justify-center mb-14">
-            <div className="flex items-center space-x-3 text-sm text-muted-foreground">
+          <div className="flex justify-center mb-10 md:mb-12">
+            <div className="flex items-center space-x-3 text-sm text-muted-foreground h-5">
               <span>{metadata.author}</span>
               <span>·</span>
-              <time dateTime={metadata.date}>{metadata.date}</time>
+              <time dateTime={metadata.date} className="hidden md:inline">{metadata.date}</time>
+              <span className="hidden md:inline">·</span>
+              <div className="w-20 flex justify-center">
+                <ResourceButton text="Copy Link" />
+              </div>
             </div>
           </div>
         </>
@@ -191,15 +195,18 @@ function PostHeader({ metadata }: { metadata: PostMetadata }) {
  */
 function PostFooter({ metadata }: { metadata: PostMetadata }) {
   return (
-    <div className="max-w-2xl mx-auto mt-24">
-      <div className="border-t border-border mb-6" />
+    <div className="max-w-2xl mx-auto mt-4 md:mt-16 lg:mt-24">
+      <div className="border-t border-border mb-6 md:mb-12" />
       <div className="flex items-baseline justify-between text-sm text-muted-foreground">
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 mx-auto h-5">
           <span>{metadata.author}</span>
           <span>·</span>
           <time dateTime={metadata.date}>{metadata.date}</time>
+          <span>·</span>
+          <div className="w-20 flex justify-center">
+            <ResourceButton text="Copy Link" />
+          </div>
         </div>
-        <ResourceButton text="Copy Link" />
       </div>
     </div>
   );
@@ -228,9 +235,9 @@ async function Resource({ params }: PageProps) {
 
   return (
     <main className="pt-16">
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto md:px-4">
         {/* Spacer */}
-        <div className="h-16" />
+        <div className="hidden md:block h-8 lg:h-16" />
 
         {/* Breadcrumbs */}
         <Breadcrumbs category={metadata.category || "Article"} />
@@ -239,7 +246,7 @@ async function Resource({ params }: PageProps) {
         <PostHeader metadata={metadata} />
 
         {/* Article Content */}
-        <article className="max-w-xl mx-auto">
+        <article className="max-w-xl mx-auto overflow-x-hidden">
           <div className="prose prose-lg mx-auto leading-tight prose-gray dark:prose-invert">
             <ResourceContent />
           </div>

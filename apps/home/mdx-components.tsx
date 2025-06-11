@@ -44,13 +44,15 @@ function FootnoteRef({ id }: { id: string }) {
  */
 function FootnoteSection({ children }: { children: React.ReactNode }) {
   return (
-    <section className="mt-16 pt-8 border-t border-border">
-      <h2 id="footnote-label" className="sr-only">
-        Footnotes
-      </h2>
-      <ol className="space-y-4 text-sm text-muted-foreground">
-        {children}
-      </ol>
+    <section className="mt-16 pt-4 sm:mt-1 sm:pt-6 md:mt-16 md:pt-8 relative before:absolute before:top-0 before:left-2 before:right-2 sm:before:left-0 sm:before:right-0 before:h-px sm:before:h-0 before:bg-border">
+      <div>
+        <h2 id="footnote-label" className="sr-only">
+          Footnotes
+        </h2>
+        <ol className="space-y-2 text-sm text-muted-foreground sm:space-y-3 md:space-y-4" style={{ paddingInlineStart: '0px' }}>
+          {children}
+        </ol>
+      </div>
     </section>
   );
 }
@@ -63,13 +65,13 @@ function FootnoteSection({ children }: { children: React.ReactNode }) {
  */
 function Footnote({ id, children }: { id: string; children: React.ReactNode }) {
   return (
-    <li id={`footnote-${id}`} className="flex gap-2">
-      <span className="text-primary font-medium min-w-[1.5rem]">{id}.</span>
-      <div className="flex-1">
-        <span>{children}</span>
+    <li id={`footnote-${id}`} className="flex gap-1.5 sm:gap-2">
+      <span className="text-primary font-medium min-w-[1.25rem] sm:min-w-[1.5rem] text-xs sm:text-sm flex-shrink-0">{id}.</span>
+      <div className="flex-1 min-w-0 break-words">
+        <span className="text-xs sm:text-sm leading-relaxed">{children}</span>
         <a
           href={`#footnote-ref-${id}`}
-          className="ml-2 text-primary hover:text-primary/80 no-underline transition-colors"
+          className="ml-1.5 sm:ml-2 text-primary hover:text-primary/80 no-underline transition-colors text-xs sm:text-sm hidden lg:inline"
           aria-label="Back to content"
         >
           ↩
@@ -115,7 +117,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     
     // Text Components ----
     p: ({ children }) => (
-      <p className="text-[15px] mb-4 leading-relaxed text-foreground dark:text-foreground/90">
+      <p className="text-[15px] md:text-[16px] font-normal mb-4 leading-relaxed text-foreground dark:text-foreground/90 text-pretty">
         {children}
       </p>
     ),
@@ -124,7 +126,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: ({ href, children }) => (
       <a
         href={href}
-        className="text-primary font-medium hover:text-primary/80 underline underline-offset-3 transition-colors"
+        className="text-primary font-medium hover:text-primary/80 underline underline-offset-3 transition-colors break-words"
         target={href?.startsWith('http') ? '_blank' : undefined}
         rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
       >
