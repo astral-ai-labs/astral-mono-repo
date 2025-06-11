@@ -26,13 +26,13 @@ Astral exists to make that future possible. We’re rebuilding the AI developmen
 
 I’ve spent the last 18 months building intelligent systems for startups. And every project felt the same. I spent more time wrestling with tools than building anything useful.
 
-The problem wasn't the tools themselves. It was getting them to work together. I was using four different services to call models, rewriting integrations to reach external systems, juggling multiple tracing setups, and still struggling to get anything running in production. Nothing worked end-to-end.
+The problem wasn’t just the tools. It was getting them to work together. I was using four different services to call models, rewriting integrations to reach external systems, juggling tracing setups, and still struggling to get anything into production. Nothing worked end to end.
 
-Eventually I got tired of it. So I started building my own tools. Not to start a company. Just to make my own work easier.
+Eventually I got sick of it and started building my own tools. Not to start a company. Just to make my own work easier.
 
-Each tool was small, but they all spoke the same language. I didn't realize it at the time, but I was starting to answer a deeper question. *What are the actual components needed to build intelligent systems?*
+Each one solved a different problem, but they all spoke the same language and shared a common foundation. I didn’t realize it at the time, but I was starting to answer a deeper question: *what are the core pieces needed to build intelligent systems?*
 
-Once the tools came together, I was building in hours what was taking other teams weeks. I started getting pulled into more projects, mostly with YC startups. A few asked me to join full time. I turned down four offers, including a CTO role, to keep exploring what these tools could become.
+As these tools started to compound, I was building in hours what was taking other teams weeks. More projects started coming my way, mostly from YC startups. A few asked me to join full time. I turned down four offers, including a CTO role, to keep exploring what these tools could become.
 
 Eventually I joined 1Mind, where I had the freedom to keep building. The systems I built became core to how the company operated and helped drive it to $1 million in ARR.
 
@@ -40,13 +40,13 @@ That's when I realized it wasn't just me. Everyone building intelligent systems 
 
 The first is to stitch together a pile of fragmented tools like I was doing. None of them work well together. And as the system grows, the complexity only gets worse.
 
-The second is to use a platform from a big vendor like IBM or Microsoft. They give you some unification, but at the cost of flexibility and control.
+The second is to use a platform from a big vendor like IBM or Microsoft. You get some unification, but at the cost of flexibility and control.
 
 ## Rethinking the Stack
 
-As I stressed earlier, we want a future where intelligent systems can build and improve themselves. To get there, we have to start from first principles.
+As I’ve said before, we want a future where intelligent systems can build and improve themselves. To get there, we have to rethink the stack from first principles.
 
-**What does it actually take to build intelligent systems that perform at a high level?**
+**What does it actually take to build high-performing intelligent systems?**
 
 Surprisingly little. Just three core layers, and one capability that runs through all of them.
 
@@ -54,7 +54,7 @@ Surprisingly little. Just three core layers, and one capability that runs throug
 
 This layer is pretty straightforward. Models are the intelligence in intelligent systems. They take in context and produce an output. Everything else exists to support that process. So it makes sense to start here.
 
-What's not so simple is what you need from this layer. 
+what’s not so simple is what you need from this layer. 
 
 First, you need to be able to use any model from any provider. Different models are good at different things. Some excel at reasoning. Some at coding. Others are finetuned on your own data. We see models as a new form of talent. The best developers will reach for the best model for the task, which is often one that just launched. So you also need instant access to every new model release.
 
@@ -86,7 +86,7 @@ But simplicity should not come at the cost of flexibility. You should be able to
 
 Finally, deployment should fit naturally into how teams already work. That means integration with popular version control platforms. You should be able to push changes, track history, and roll back when needed.
 
-#### **Observability And Evaluation**
+#### **Observability and Evaluation**
 
 Observability is the feedback loop that runs through the entire stack. Intelligent systems behave less like traditional software and more like people. But unlike people, they need constant observation. You need to see every decision they make: what happened, when it happened, and what context it had at the time.
 
