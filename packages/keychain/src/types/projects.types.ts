@@ -12,7 +12,7 @@
 import { InferSelectModel } from "drizzle-orm";
 
 // Local Files ----
-import { projects, apiKeys, tierEnum } from "@/db/schemas/astral-schema";
+import { projects, apiKeys, tierEnum } from "../db/schemas/astral-schema";
 
 /* ==========================================================================*/
 // Enums

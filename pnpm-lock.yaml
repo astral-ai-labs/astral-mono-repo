@@ -24,26 +24,14 @@ importers:
         specifier: 5.7.3
         version: 5.7.3
 
-  apps/home:
+  apps/docs:
     dependencies:
-      '@vercel/analytics':
-        specifier: ^1.5.0
-        version: 1.5.0(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
-      '@vercel/speed-insights':
-        specifier: ^1.2.0
-        version: 1.2.0(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
-      '@workspace/keychain':
-        specifier: workspace:*
-        version: link:../../packages/keychain
       '@workspace/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       lucide-react:
         specifier: ^0.475.0
         version: 0.475.0(react@19.0.0)
-      motion:
-        specifier: ^12.12.1
-        version: 12.12.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       next:
         specifier: ^15.2.3
         version: 15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -56,12 +44,6 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
-      tailwindcss-intersect:
-        specifier: ^2.2.0
-        version: 2.2.0(tailwindcss@4.0.8)
-      zod:
-        specifier: ^3.24.2
-        version: 3.24.2
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -82,7 +64,7 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
 
-  apps/home2:
+  apps/home:
     dependencies:
       '@mdx-js/loader':
         specifier: ^3.1.0
@@ -137,7 +119,7 @@ importers:
         version: 4.0.1
       tailwindcss-intersect:
         specifier: ^2.2.0
-        version: 2.2.0(tailwindcss@4.0.8)
+        version: 2.2.0
       zod:
         specifier: ^3.24.2
         version: 3.24.2
@@ -210,48 +192,11 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
 
-  apps/web3:
-    dependencies:
-      '@workspace/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-      lucide-react:
-        specifier: ^0.475.0
-        version: 0.475.0(react@19.0.0)
-      next:
-        specifier: ^15.2.3
-        version: 15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      next-themes:
-        specifier: ^0.4.4
-        version: 0.4.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      react:
-        specifier: ^19.0.0
-        version: 19.0.0
-      react-dom:
-        specifier: ^19.0.0
-        version: 19.0.0(react@19.0.0)
-    devDependencies:
-      '@types/node':
-        specifier: ^20
-        version: 20.17.19
-      '@types/react':
-        specifier: ^19
-        version: 19.0.10
-      '@types/react-dom':
-        specifier: ^19
-        version: 19.0.4(@types/react@19.0.10)
-      '@workspace/eslint-config':
-        specifier: workspace:^
-        version: link:../../packages/eslint-config
-      '@workspace/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-      typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
-
   packages/eslint-config:
     devDependencies:
+      '@eslint/js':
+        specifier: ^9.20.0
+        version: 9.20.0
       '@next/eslint-plugin-next':
         specifier: ^15.1.7
         version: 15.1.7
@@ -8355,9 +8300,7 @@ snapshots:
 
   tailwind-merge@3.0.1: {}
 
-  tailwindcss-intersect@2.2.0(tailwindcss@4.0.8):
-    dependencies:
-      tailwindcss: 4.0.8
+  tailwindcss-intersect@2.2.0: {}
 
   tailwindcss@4.0.8: {}
 

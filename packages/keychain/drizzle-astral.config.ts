@@ -8,8 +8,8 @@ if (!process.env.ASTRAL_DATABASE_URL) {
 }
 
 export default defineConfig({
-  schema: "./src/db/schemas/astral-schema.ts",
-  out: "./supabase/migrations/astral",
+  schema: "@workspace/keychain/src/db/schemas/astral-schema.ts",
+  out: "@workspace/keychain/supabase/migrations/astral",
   dialect: "postgresql",
   dbCredentials: {
     url: process.env.ASTRAL_DATABASE_URL!,
