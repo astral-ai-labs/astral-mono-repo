@@ -1,28 +1,30 @@
 export const metadata = {
   title: "The Future We're Building",
-  subtitle: "The future of AI development",
+  subtitle: "Making it dead simple to build intelligent systems.",
   author: "Chris Maresca",
-  date: "June 10, 2025",
+  date: "June 11, 2025",
   category: "Company",
-  excerpt: "Astral's vision for the future of AI development.",
+  excerpt: "Astral's vision for the future of AI development. Making it dead simple to build intelligent systems.",
   heroImage: "/resources/vision.png",
 }
 
-Artificial intelligence is going to redefine what it means to be human. I think in a positive way.
+Artificial intelligence is going to redefine how humans experience work. I think in a positive way.
 
 #### But we need two things to get there.
 
-First, we need to make it dead simple to build intelligent systems<FootnoteRef id="1" />.  That means reducing the number of moving parts and perfecting the few that actually matter.
+First, we need to make it dead simple to build artificially intelligent systems<FootnoteRef id="1" />.  That means reducing the number of moving parts and perfecting the few that actually matter.
 
-Second, we need to design a developer experience so focused that builders can spend nearly all their time improving intelligence and as little time as possible on everything else.
+Second, we need to design a developer experience so focused that builders spend nearly all their time improving intelligence, and almost none on anything else.
 
-This is what AGI will actually look like. Not a single model, at least not any time soon. It will come from perfecting the foundation for building intelligent systems, maximizing the time builders spend using it, and eventually enabling those systems to improve themselves.
+This is where AGI will actually come from. Not from a single model, at least not any time soon. It will emerge from perfecting the foundation for building intelligent systems, maximizing the time builders spend using them, and ultimately enabling those systems to build and improve themselves.
 
-Astral exists to make that future possible. We are rebuilding the AI development stack from first principles. To do it right, we have to understand what is broken and rethink what is needed to support this new way of building.
+Astral exists to make that future possible. We’re rebuilding the AI development stack from the ground up. That starts by understanding what’s broken, then rethinking what the stack actually needs to support this new way of building.
 
-### The Experience Today
 
-This way of thinking started long before Astral. I spent the last 18 months building intelligent systems for startups. Every project felt the same. I was spending more time wrestling with tools than building anything useful.
+## What I Learned the Hard Way
+
+
+I’ve spent the last 18 months building intelligent systems for startups. And every project felt the same. I spent more time wrestling with tools than building anything useful.
 
 The problem wasn't the tools themselves. It was getting them to work together. I was using four different services to call models, rewriting integrations to reach external systems, juggling multiple tracing setups, and still struggling to get anything running in production. Nothing worked end-to-end.
 
@@ -40,13 +42,15 @@ The first is to stitch together a pile of fragmented tools like I was doing. Non
 
 The second is to use a platform from a big vendor like IBM or Microsoft. They give you some unification, but at the cost of flexibility and control.
 
-### Rethinking the Stack
+## Rethinking the Stack
 
-If we want intelligent systems that can build and improve themselves, we have to start from first principles. What does it actually take to build durable, high-performing intelligence?
+As I stressed earlier, we want a future where intelligent systems can build and improve themselves. To get there, we have to start from first principles.
 
-Surprisingly little. Just three core layers and one capability that runs through all of them.
+**What does it actually take to build intelligent systems that perform at a high level?**
 
-#### **The Model Layer**
+Surprisingly little. Just three core layers, and one capability that runs through all of them.
+
+### **The Model Layer**
 
 This layer is pretty straightforward. Models are the intelligence in intelligent systems. They take in context and produce an output. Everything else exists to support that process. So it makes sense to start here.
 
@@ -90,43 +94,66 @@ You also need to experiment constantly. Try new prompts. Swap in different model
 
 Finally, you need to track usage, cost, and performance. As systems scale, so do the risks. You need a clear view of what is running, what it is costing, and whether it is creating value.
 
-### From Principles to Practice
+## Rebuilding the Stack
 
-Our goal is to make it dead simple to build intelligent systems. The simpler it is, the more likely we reach a future where those systems can build and improve themselves. We've now walked through the raw ingredients needed to get there. But how that thinking gets implemented is still far from obvious.
+I know I’ve said this a few times already, but it's worth repeating.
 
+Our goal is to make it dead simple to build intelligent systems. The simpler it is, the more likely we reach a future where those systems can build and improve themselves.
+
+We’ve now walked through the raw ingredients. But turning that thinking into something real is still not straightforward.
 So let me rewind. As I mentioned earlier, the tools I'm about to walk through didn't start with the goal of becoming a platform. They started as a way to make my own work easier. Each one solved a real problem I kept hitting while building intelligent systems for startups. I just needed things to work better, and once they did, I realized the potential of what I was building.
 
 Each tool does one thing exceptionally well. Each maps to a clear part of the stack. And most importantly, they all speak the same language. That shared foundation is what keeps the system simple. It's what lets builders spend their time improving intelligence and what opens the door to systems that can eventually build and improve themselves.
 
 #### **Astral Core**
 
-This is our model layer. It is a Python library that gives you one interface to any model, from any provider. The library implements the Model Context Protocol to standardize how models access tools and data. It's also capable of routing around provider outages and latency spikes. Other routers exist, but most wrap legacy APIs, few support MCP, and almost none offer a clean, provider-style developer experience. And most importantly, none work well with the rest of the stack.
+This is our model layer. It is a Python library that gives you one interface to any model, from any provider. The library implements the Model Context Protocol to standardize how models access tools and data. It's also capable of routing around provider outages and latency spikes. 
+
+Other routers exist, but most wrap legacy APIs, few support MCP, and almost none offer a clean, provider-style developer experience. And most importantly, none work well with the rest of the stack.
 
 #### **Astral Agents SDK and Astral Workflows SDK**
 
-This is our orchestration layer. Earlier, we stressed how important it is to keep agents and workflows distinct, and to build them on a shared foundation. These SDKs do exactly that. Each offers a simple interface for its own kind of system. Both follow the same structure and syntax because both are built on Astral Core. That makes them easier to understand, easier to debug, and easier to work across. Most agent SDKs are heavy with abstraction or only avoid it when tied to a single provider. Ours stay minimal and consistent.
+This is our orchestration layer. Earlier, we stressed how important it is to keep agents and workflows distinct, and to build them on a shared foundation. These SDKs do exactly that. Each offers a simple interface for its own kind of system. Both follow the same structure and syntax because both are built on Astral Core. That makes them easier to understand, easier to debug, and easier to work across. 
+
+Most agentic SDKs are weighed down by abstraction, or only stay simple when locked to a single provider. Ours stay minimal while offering all models and providers.
 
 #### **Astral Deployment**
 
-This moves intelligent systems into production. Today it's a small set of configurable Infrastructure as Code (IaC) scripts for AWS. It'll grow into a full deployment layer that runs on any runtime, from serverless to containers to your own machines. Hardly any python tools treat deployment as a real layer for intelligent systems, and none do it while supporting everything underneath.
+This is how intelligent systems move into production. Today, it’s a small set of configurable Infrastructure as Code (IaC) scripts for AWS. Over time, it will grow into a full deployment layer that runs on any runtime, from serverless to containers to your own machines.
+
+Hardly any Python tools treat deployment as a real layer for intelligent systems. And none do it while supporting everything underneath.
+
 
 #### **Astral Observability**
 
-This is visibility across every layer. You see every model call, agent decision, and workflow step in one place. You also get usage, latency, and performance. A lot of teams are building observability frameworks, but they're doing it as outsiders, which means you need to constantly rework things every time a layer changes. This is the advantage of building the stack from the ground up. The best part is, it's not even a true separate component. It's built into the three layers above. There's nothing extra to install. And if you don't want it, just set an environment variable to turn it off.
+This is visibility across every layer. You see every model call, agent decision, and workflow step in one place. You also get usage, latency, and performance. 
 
-Our true competitive advantage is the consistent language and shared primitives across every layer. Hardly any tools try to solve the full stack. Most are open source, which makes coordination across layers nearly impossible. The rest come from providers who aren't incentivized to fully support anything beyond their own models. We're building the system that ties everything together.
+A lot of teams are building observability frameworks, but they’re doing it as outsiders. That means every time a layer changes, you have to rework everything. This is the advantage of building the stack from the ground up.
 
-### How We'll Get There
+The best part is, it's not even a separate component. It's built into the three layers above. There's nothing extra to install. And if you don't want it, just set an environment variable to turn it off.
 
-So the question now is how we bring it to life. We're taking a three-phase path to get there.
+## Why This Wins
 
-First, we're building for others. We're working closely with teams to design and deploy intelligent systems using the internal tools we outlined above. This gives us instantaneous feedback loops and proves the leverage the system creates.
+What sets us apart is our consistency across every layer. Each part of the system speaks the same language. That’s what makes it easy to build with, and even easier to scale.
 
-Next, we'll turn those tools into a unified platform. One that gives developers and teams everything they need to build, run, and evolve intelligent systems.
+Most tools try to solve just one layer - and we see real advantages within each of those buckets. But our true leverage comes from owning the stack.
 
-And once the platform is mature, we'll use it to build the machine that builds the machine. We'll give every developer and team the equivalent of a dedicated AI engineering team. This is the long-term goal. A compounding engine of intelligence, built from simple and modular parts.
+When the layers are designed to work together, you get a lot of leverage. You spend less time gluing things together, and more time focused on the actual intelligence. 
 
-#### **Phase One: Implementation**
+That’s what will eventually make it possible for intelligent systems to build and improve themselves.
+
+
+## How We'll Get There
+
+So the question now is how we bring it to life. We’re taking a three-phase path.
+
+First, we’re building for others. We’re working closely with teams to design and deploy intelligent systems using the internal tools we just walked through. This gives us fast feedback loops and proves the leverage the system creates.
+
+Next, we’ll turn those tools into a unified platform. One that gives developers and teams everything they need to build, run, and evolve intelligent systems.
+
+And once the platform is mature, we’ll use it to build the machine that builds the machine. That's the long-term goal. A compounding engine of intelligence, built from simple, modular parts.
+
+### **Phase One: Implementation**
 
 Right now, we're using our own SDKs to build workflows and agents for companies. It doesn't scale forever, but that's the point. I'm a firm believer in [doing things that don't scale](https://www.paulgraham.com/ds.html) early on. The problem we're solving is hard, and being the first and heaviest users means our feedback loop is instantaneous.
 
@@ -160,15 +187,16 @@ It also opens new markets. Once we have the platform and intelligence, we can de
 
 ### Where We're Headed
 
-We're going to move fast but carefully. We could have built a vertical agent that generates other agents. It would have been faster to ship. But we're choosing the harder path. **Rebuilding the stack from the ground up gives us immense long-term leverage**.
+We're going to move fast but carefully. We could have built a vertical agent that generates other agents. It would have been faster to ship. But we're choosing the harder path. 
 
-It's worth repeating. We're setting out to make it dead simple to build intelligent systems. That's how we reach a future where those systems can build and improve themselves. Everything we are building — our libraries, our platform, and our path — is in service of that goal.
+**Rebuilding the stack from the ground up gives us an immense long-term competitive advantage**.
+
+It’s worth repeating. We’re setting out to make it dead simple to build intelligent systems. That’s how we reach a future where those systems can build and improve themselves. Everything we are building—our libraries, our platform, and our path—is in service of that goal.
 
 Thank you for reading.
 
 <FootnoteSection>
-  <Footnote id="1">We define intelligent systems primarily as workflows and agents, which are defined well by Anthropic in footnote 4.</Footnote>
-  <Footnote id="2"><a href="https://modelcontextprotocol.io/introduction" target="_blank">https://modelcontextprotocol.io/introduction</a></Footnote>
+<Footnote id="1">We use the term “intelligent systems” throughout this piece. In most cases, we’re referring to workflows and agents, which are defined clearly in <FootnoteRef id="4" />.</Footnote>  <Footnote id="2"><a href="https://modelcontextprotocol.io/introduction" target="_blank">https://modelcontextprotocol.io/introduction</a></Footnote>
   <Footnote id="3">Even Google and OpenAI's SDKs fall short unless you commit to their entire ecosystem</Footnote>
   <Footnote id="4"><a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank">https://www.anthropic.com/engineering/building-effective-agents</a></Footnote>
 </FootnoteSection>
