@@ -14,6 +14,9 @@ import { Metadata } from "next";
 // External Packages ----
 import { Geist, Geist_Mono, Manrope, Inter } from "next/font/google";
 
+// Analytics
+import { Analytics } from "@vercel/analytics/react";
+
 // Local Files ----
 import "./styles.css";
 import { Providers } from "@/components/providers";
@@ -70,6 +73,7 @@ export default function RootLayout({
           {children}
           {/* <Footer /> */}
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
