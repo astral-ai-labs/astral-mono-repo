@@ -1,0 +1,1 @@
+ALTER TABLE "profiles" ALTER COLUMN "completed_quickstart" SET NOT NULL;

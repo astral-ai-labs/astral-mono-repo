@@ -1,0 +1,38 @@
+{
+    "name": "@workspace/keychain",
+    "version": "0.0.0",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "lint": "eslint . --max-warnings 0",
+        "db:generate:astral": "drizzle-kit generate --config=drizzle-astral.config.ts",
+        "db:migrate:astral": "drizzle-kit migrate --config=drizzle-astral.config.ts",
+        "db:generate:logs": "drizzle-kit generate --config=drizzle-logs.config.ts",
+        "db:migrate:logs": "drizzle-kit migrate --config=drizzle-logs.config.ts"
+    },
+    "dependencies": {
+        "@supabase/ssr": "^0.6.1",
+        "@supabase/supabase-js": "^2.49.8",
+        "date-fns": "^4.1.0",
+        "dotenv": "^16.5.0",
+        "drizzle-orm": "^0.43.1",
+        "jsonwebtoken": "^9.0.2",
+        "next": "^15.2.3",
+        "pino": "^9.7.0",
+        "postgres": "^3.4.7"
+    },
+    "exports": {
+        "./client": "./src/auth/utils/client-utils.ts",
+        "./server": "./src/auth/utils/server-utils.ts",
+        "./supabase/client": "./src/auth/supabase/client.ts",
+        "./supabase/server": "./src/auth/supabase/server.ts",
+        "./middleware": "./src/auth/utils/middleware.ts",
+        "./types": "./src/types/index.ts"
+    },
+    "devDependencies": {
+        "@types/jsonwebtoken": "^9.0.9",
+        "@types/node": "^20.0.0",
+        "drizzle-kit": "^0.31.1",
+        "tsx": "^4.19.4"
+    }
+}

@@ -1,0 +1,1 @@
+ALTER TABLE "profiles" ADD COLUMN "completed_quickstart" boolean DEFAULT false;

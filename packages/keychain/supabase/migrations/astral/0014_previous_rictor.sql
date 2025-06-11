@@ -1,0 +1,1 @@
+CREATE TYPE "public"."chris" AS ENUM('chris', 'not_chris');

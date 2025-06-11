@@ -1,0 +1,1 @@
+ALTER TYPE "public"."tier" RENAME TO "tier_enum";

@@ -1,0 +1,2 @@
+ALTER TABLE "plans" ADD COLUMN "is_default" boolean DEFAULT false NOT NULL;--> statement-breakpoint
+CREATE UNIQUE INDEX "ux_default_plan_by_type" ON "plans" USING btree ("type") WHERE is_default = true;

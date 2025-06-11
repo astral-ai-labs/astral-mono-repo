@@ -1,0 +1,320 @@
+/* ==========================================================================*/
+/* styles.css — Custom styles for the home application                    */
+/* ==========================================================================*/
+
+@import "@workspace/ui/globals.css";
+
+
+/* ==========================================================================*/
+/* Overrides                                                                  */
+/* ==========================================================================*/
+
+.dark {
+  --background: oklch(0 0 0);
+}
+
+/* ==========================================================================*/
+/* Section Spacing Utilities                                                  */
+/* ==========================================================================*/
+
+.section-spacing {
+    @apply pt-24 sm:pt-32;
+  }
+
+/* ==========================================================================*/
+/* Navbar Section Utilities                                                      */
+/* ==========================================================================*/
+
+.btn-transition {
+  /* Consistent hover "lift" effect used across the navbar */
+  @apply hover:scale-[1.02] hover:shadow-md transition-all duration-200
+           ease-in-out transform;
+}
+
+/* ==========================================================================*/
+/* CTA Section Utilities                                                      */
+/* ==========================================================================*/
+
+.cta-container {
+  @apply w-full mx-auto lg:max-w-6xl 2xl:max-w-full xl:px-0 px-4 flex flex-col items-center justify-center text-center z-10;
+}
+
+/* Title in home CTA */
+.cta-title {
+  @apply text-[clamp(2rem,5vw+1rem,4rem)] font-[500] leading-tight tracking-tight mb-4 mx-auto max-w-4xl lg:max-w-full overflow-hidden text-balance;
+}
+
+/* Subtitle in home CTA */
+.cta-subtitle {
+  @apply text-lg md:text-xl lg:text-2xl mb-6 mx-auto max-w-md lg:max-w-2xl xl:max-w-3xl text-muted-foreground tracking-wide font-light leading-relaxed overflow-hidden;
+}
+
+/* ==========================================================================*/
+/* Providers Section Utilities                                               */
+/* ==========================================================================*/
+
+/* Main container for providers section */
+.providers-container {
+  @apply relative w-full overflow-hidden mx-auto px-6 max-w-7xl;
+}
+
+/* Grid layout for provider items */
+.providers-grid {
+  @apply grid grid-cols-3 gap-6 md:gap-10 max-w-xs sm:max-w-sm mx-auto;
+}
+
+/* Individual provider card styling - removed hover:scale-105 to prevent conflict with Motion animations */
+.provider-item {
+  @apply bg-white p-3 h-17 w-17 lg:h-16 lg:w-16 rounded-xl shadow-md flex items-center justify-center transition-all duration-300 hover:shadow-lg opacity-80;
+}
+
+/* Provider logo image container */
+.provider-image {
+  @apply relative h-12 w-12;
+}
+
+/* Section heading styling */
+.providers-heading {
+  @apply text-[32px] md:text-[42px] mx-auto lg:mx-0 lg:mr-3 text-white mb-3 font-sans tracking-tight leading-tight;
+}
+
+/* Integration label badge styling */
+.providers-label {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-primary-foreground rounded-full bg-primary border border-primary/30;
+}
+
+/* Providers subtitle styling */
+.providers-subtitle {
+  @apply text-base md:text-lg text-muted-foreground mb-8 max-w-sm mx-auto lg:mx-0 leading-relaxed;
+}
+
+/* ==========================================================================*/
+/* Social Proof & Avatar Utilities                                            */
+/* ==========================================================================*/
+
+/* Wrapper for avatar list with gap and padding */
+.social-proof-avatar-group {
+  @apply inline-flex items-center gap-2 rounded-full text-sm px-4 py-2;
+}
+
+/* Individual avatar item */
+.social-proof-avatar-item {
+  @apply w-10 h-10 rounded-full -ml-4 first:ml-0 overflow-hidden border-2 border-background;
+}
+
+
+/* ==========================================================================*/
+/* Quickstart Utilities (Repeated Patterns Only)                             */
+/* ==========================================================================*/
+
+/* Navigation buttons - used 6+ times */
+.quickstart-nav-button {
+    @apply h-10 px-5;
+  }
+  
+  .quickstart-nav-button-primary {
+    @apply bg-primary text-primary-foreground h-10 px-5;
+  }
+  
+  /* Copy button container - used 4+ times */
+  .quickstart-copy-button {
+    @apply flex-shrink-0 h-9 w-9 flex items-center justify-center text-zinc-400 hover:text-zinc-100 transition-colors duration-200;
+  }
+  
+  /* Code display row - used 3+ times for API key, terminal, env */
+  .quickstart-code-row {
+    @apply flex text-foreground text-left items-center cursor-pointer transition-all duration-200 hover:bg-zinc-800;
+  }
+  
+  /* Icon container in code displays */
+  .quickstart-code-icon {
+    @apply flex-shrink-0 pl-3 pr-2 py-2.5;
+  }
+  
+  /* Code text styling */
+  .quickstart-code-text {
+    @apply text-sm py-2.5 ml-2 font-mono text-foreground transition-colors duration-200 whitespace-nowrap overflow-x-auto flex-1;
+  }
+  
+  /* Badge component - used for account type and team workspace */
+  .quickstart-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full bg-primary text-primary-foreground border border-primary/30 will-change-transform;
+  }
+  
+  /* Navigation container - used in every step */
+  .quickstart-nav-container {
+    @apply flex justify-between mt-8;
+  }
+
+  /* Account type tab styling - used in EmailForm */
+  .quickstart-account-tab {
+    @apply rounded-none cursor-pointer !border-0 data-[state=active]:!bg-transparent data-[state=active]:!border-b-2 data-[state=active]:!border-white data-[state=active]:text-foreground data-[state=active]:shadow-none py-3 px-4 h-auto;
+  }
+
+  /* Form input styling - used in EmailForm */
+  .quickstart-form-input {
+    @apply h-12 bg-card border-border focus-visible:ring-1 focus-visible:ring-primary/40 w-full rounded-md;
+  }
+
+  .quickstart-form-input-error {
+    @apply border-red-500 focus-visible:ring-red-500/40;
+  }
+
+  /* Submit button styling - used in EmailForm */
+  .quickstart-submit-button {
+    @apply h-12 bg-primary text-primary-foreground px-5 rounded-md w-full flex items-center justify-center relative;
+  }
+
+  .quickstart-submit-button-pending {
+    @apply opacity-90;
+  }
+
+  /* Progress bar segment styling - used in progress.tsx */
+  .quickstart-progress-segment {
+    @apply h-1 rounded-full overflow-hidden relative bg-platform-accent-900;
+  }
+
+  .quickstart-progress-fill {
+    @apply absolute inset-0 bg-primary;
+  }
+
+  /* Code editor tab styling - used in CodeEditor.tsx */
+  .quickstart-code-editor-tab {
+    @apply h-9 px-3 whitespace-nowrap select-none relative rounded-none text-sm font-mono cursor-pointer border-r border-b-0 border-l-0 border-t-0 border-border transition-colors duration-150 data-[state=inactive]:text-muted-foreground data-[state=inactive]:hover:text-foreground data-[state=active]:text-foreground data-[state=active]:bg-background/50 data-[state=inactive]:hover:bg-zinc-800 flex items-center justify-center after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] data-[state=active]:after:bg-primary data-[state=inactive]:after:bg-transparent;
+  }
+
+  /* Terminal container styling - used in InstallStep.tsx */
+  .quickstart-terminal-container {
+    @apply rounded-sm overflow-hidden border border-border;
+  }
+
+  .quickstart-terminal-tabs {
+    @apply w-full grid grid-cols-3 !bg-zinc-900 rounded-none !p-0;
+  }
+
+  .quickstart-terminal-tab {
+    @apply rounded-none px-4 cursor-pointer hover:bg-zinc-800 !border-none;
+  }
+
+  .quickstart-terminal-tab-first {
+    @apply rounded-tl-sm;
+  }
+
+  .quickstart-terminal-tab-last {
+    @apply rounded-tr-sm;
+  }
+
+  /* Error notice styling - used in EmailForm */
+  .quickstart-error-notice {
+    @apply flex items-center text-red-500 text-sm mt-1;
+  }
+
+  .quickstart-info-notice {
+    @apply flex items-center text-sm mt-1 text-muted-foreground;
+  }
+
+  /* ==========================================================================*/
+  /* Billing Section Utilities                                                      */
+  /* ==========================================================================*/
+
+  .billing-tab-trigger {
+    @apply relative text-[13px] data-[state=inactive]:text-muted-foreground data-[state=active]:text-foreground cursor-pointer rounded-none border-none !bg-transparent shadow-none px-4 py-2 h-10 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] data-[state=active]:after:bg-white data-[state=inactive]:after:bg-transparent;
+  }
+
+  /* ==========================================================================*/
+  /* IDE Section Utilities                                                      */
+  /* ==========================================================================*/
+
+  /* Main IDE container styling */
+  .ide-container {
+    @apply flex flex-col h-full bg-muted/20;
+  }
+
+  /* IDE header styling */
+  .ide-header {
+    @apply px-4 py-4 shrink-0;
+  }
+
+  .ide-header-content {
+    @apply flex items-center justify-between;
+  }
+
+  .ide-header-info {
+    @apply flex items-center gap-2;
+  }
+
+  .ide-header-icon {
+    @apply h-4 w-4 text-muted-foreground;
+  }
+
+  .ide-header-title {
+    @apply text-sm text-muted-foreground/80;
+  }
+
+  .ide-header-subtitle {
+    @apply text-xs text-muted-foreground mt-0.5;
+  }
+
+  .ide-close-button {
+    @apply h-7 w-7 p-0 hover:bg-muted/50;
+  }
+
+  .ide-close-icon {
+    @apply h-3.5 w-3.5;
+  }
+
+  /* IDE content area */
+  .ide-content {
+    @apply flex-1 min-h-0;
+  }
+
+  /* IDE footer styling */
+  .ide-footer {
+    @apply px-6 py-4 border-t border-border/50 bg-muted/30 shrink-0;
+  }
+
+  /* IDE empty state styling */
+  .ide-empty-state {
+    @apply flex flex-col h-full items-center justify-center text-center p-12 bg-muted/20;
+  }
+
+  .ide-empty-icon {
+    @apply h-16 w-16 text-muted-foreground/60 mb-6;
+  }
+
+  .ide-empty-title {
+    @apply font-medium text-lg mb-3;
+  }
+
+  .ide-empty-description {
+    @apply text-muted-foreground mb-8 max-w-md leading-relaxed;
+  }
+
+  /* ==========================================================================*/
+  /* Two-Column Layout Utilities (MCP Components)                              */
+  /* ==========================================================================*/
+
+  /* Main two-column grid container */
+  .mcp-two-column-layout {
+    @apply grid grid-cols-12 gap-0 h-full overflow-hidden;
+  }
+
+  /* Left panel for cards/list */
+  .mcp-left-panel {
+    @apply col-span-5 flex flex-col border-r border-border max-h-full overflow-hidden;
+  }
+
+  /* Right panel for IDE/content */
+  .mcp-right-panel {
+    @apply col-span-7 flex flex-col h-full;
+  }
+
+  /* Scrollable content area within left panel */
+  .mcp-scrollable-content {
+    @apply flex-1 h-full overflow-y-auto;
+  }
+
+  /* Full height container with motion support */
+  .mcp-motion-container {
+    @apply overflow-hidden h-full;
+  }
