@@ -18,7 +18,6 @@ import { motion, useInView } from "motion/react";
 import { ArrowRight } from "lucide-react";
 
 // UI Components ---
-import { AnimatedNumber } from "@workspace/ui/components/animated-number";
 
 // Local Components ---
 import { OneMind } from "./logos/onemind";
@@ -163,10 +162,10 @@ function AnimatedMetric({ value, label, delay = 0 }: { value: number, label: str
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
-      <AnimatedNumber
+      {/* <AnimatedNumber
         value={animatedValue}
         springOptions={{ bounce: 0, duration: 2000 }}
-      />
+      /> */}
       {label}
     </motion.span>
   );

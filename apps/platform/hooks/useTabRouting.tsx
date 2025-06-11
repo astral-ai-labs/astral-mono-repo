@@ -10,7 +10,7 @@
 // Imports
 /* ==========================================================================*/
 
-import React, { createContext, useContext, useCallback, useEffect } from 'react'
+import React, { createContext, useContext, useCallback, useEffect, Suspense } from 'react'
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 
 /* ==========================================================================*/
@@ -35,20 +35,10 @@ interface TabRoutingProviderProps {
 const TabRoutingContext = createContext<TabRoutingContextType | null>(null)
 
 /* ==========================================================================*/
-// Provider Component
+// Internal Provider Component (wrapped in Suspense)
 /* ==========================================================================*/
 
-/**
- * TabRoutingProvider
- * 
- * Provides global tab routing state via URL parameters
- * Automatically handles URL updates and clean routing
- * 
- * @param children - Child components that need tab routing
- * @param defaultTab - Default tab to show when no URL param exists
- * @param paramName - URL parameter name (defaults to 'tab')
- */
-export function TabRoutingProvider({ 
+function TabRoutingProviderInner({ 
   children, 
   defaultTab, 
   paramName = 'tab' 
@@ -95,6 +85,28 @@ export function TabRoutingProvider({
     <TabRoutingContext.Provider value={contextValue}>
       {children}
     </TabRoutingContext.Provider>
+  )
+}
+
+/* ==========================================================================*/
+// Provider Component
+/* ==========================================================================*/
+
+/**
+ * TabRoutingProvider
+ * 
+ * Provides global tab routing state via URL parameters
+ * Automatically handles URL updates and clean routing
+ * 
+ * @param children - Child components that need tab routing
+ * @param defaultTab - Default tab to show when no URL param exists
+ * @param paramName - URL parameter name (defaults to 'tab')
+ */
+export function TabRoutingProvider(props: TabRoutingProviderProps) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <TabRoutingProviderInner {...props} />
+    </Suspense>
   )
 }
 
